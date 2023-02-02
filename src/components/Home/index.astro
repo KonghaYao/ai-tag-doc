@@ -1,0 +1,23 @@
+---
+import { Show, createSelector, createSignal } from "solid-js";
+import { Content } from "./content";
+---
+
+<div class=" text-4xl p-4 text-slate-50">
+    <Content client:load></Content>
+    <header
+        class="text-6xl relative text-center z-10 py-4"
+        style="letter-spacing:1rem">
+        <span class="bg-slate-800/80  p-4  ">魔导绪论</span>
+    </header>
+    <aside class="text-2xl text-pink-500 text-right py-2">
+        一个AI 绘画提示词编写器
+    </aside>
+    <div class="text-amber-400 text-xl float-right">
+        <div class=" ">😍编写魔咒</div>
+        <div class=" ">😊重构魔咒</div>
+
+        <div class=" ">🧐复用魔咒</div>
+        <div class=" ">🥳分享魔咒</div>
+    </div>
+</div>

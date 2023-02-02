@@ -1,0 +1,30 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import Header from '../components/Header/Header'
+import HeadCommon from '../components/HeadCommon.astro';
+import HeadSEO from '../components/HeadSEO.astro';
+import HomePage  from '../components/Home/index.astro';
+type Props = CollectionEntry<'docs'>['data'] & {
+	headings: MarkdownHeading[];
+};
+
+const { headings, ...data } = Astro.props;
+
+---
+
+<html dir={data.dir} lang={data.lang} class="initial">
+	<head>
+		<HeadCommon />
+		<HeadSEO  {{...data}} title='魔导绪论文档站' />
+		<title>
+			魔导绪论文档站首页
+		</title>
+		
+	</head>
+
+	<body class="h-screen w-screen overflow-hidden font-global">
+		<Header  />
+		<HomePage ></HomePage>
+	</body>
+</html>

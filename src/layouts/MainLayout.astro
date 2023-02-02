@@ -1,0 +1,50 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import HeadCommon from '../components/HeadCommon.astro';
+import HeadSEO from '../components/HeadSEO.astro';
+import PageContent from '../components/PageContent/PageContent.astro';
+// import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro';
+// import RightSidebar from '../components/RightSidebar/RightSidebar.astro';
+import Footer from '../components/Footer/Footer.astro';
+import { GITHUB_EDIT_URL, SITE } from '../consts';
+import Header from '../components/Header/Header';
+
+type Props = CollectionEntry<'docs'>['data'] & {
+	headings: MarkdownHeading[];
+};
+
+const { headings, ...data } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPage = Astro.url.pathname;
+const currentFile = `src/content/docs${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+---
+
+<html dir={data.dir} lang={data.lang} class="initial">
+	<head>
+		<HeadCommon />
+		<HeadSEO {...data}  />
+		<title>
+			{`${data.title} 🚀 ${SITE.title}`}
+		</title>
+	</head>
+
+	<body class="font-global">
+		<Header />
+		<main class="flex">
+			<aside  class="" title="Site Navigation">
+				<!-- <LeftSidebar currentPage={currentPage} /> -->
+			</aside>
+			<div class="flex-1">
+				<PageContent title={data.title} headings={headings} githubEditUrl={githubEditUrl}>
+					<slot />
+				</PageContent>
+			</div>
+			<aside class="grid-sidebar" title="Table of Contents">
+				<!-- <RightSidebar headings={headings} githubEditUrl={githubEditUrl} /> -->
+			</aside>
+		</main>
+		<Footer  />
+	</body>
+</html>

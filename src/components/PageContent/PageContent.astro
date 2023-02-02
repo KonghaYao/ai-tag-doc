@@ -1,0 +1,19 @@
+---
+import type { MarkdownHeading } from 'astro';
+import MoreMenu from '../RightSidebar/MoreMenu.astro';
+import TableOfContents from '../RightSidebar/TableOfContents';
+import '../../styles/typo.css'
+type Props = {
+	title: string;
+	headings: MarkdownHeading[];
+	githubEditUrl: string;
+};
+
+const { title, headings, githubEditUrl } = Astro.props;
+---
+
+<article id="article" class="content flex items-center justify-center">
+	<section class="main-section cn-typography max-w-2xl select-text">
+		<slot />
+	</section>
+</article>

@@ -1,0 +1,43 @@
+@import "./font.test.css";
+@import "https://unpkg.com/@fontsource/aclonica@4.5.9/400.css";
+body {
+    margin: 0;
+    overflow: hidden;
+    @apply select-none bg-slate-900 text-gray-400;
+}
+
+.font-global {
+    font-family: "aclonica", "jiangxizhuokai";
+}
+.font-icon {
+    font-family: "Material Icons Rounded", "aclonica", "jiangxizhuokai";
+}
+.font-global .en-words {
+    font-size: 0.75rem;
+}
+.bg-grid {
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px !important;
+    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px !important;
+    background-blend-mode: difference !important;
+    background-image: linear-gradient(
+            rgb(130 130 130 / 35%) 1px,
+            transparent 1px
+        ),
+        linear-gradient(90deg, rgb(130 130 130 / 28%) 1px, transparent 1px),
+        linear-gradient(rgb(130 130 130 / 37%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(130 130 130 / 38%) 1px, transparent 1px) !important;
+}
+.blur-background {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.blur-background-none {
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+}
+.btn {
+    @apply flex-none cursor-pointer select-none rounded bg-slate-800  px-2 text-center align-middle font-thin   ring-1 ring-slate-700 transition-all active:scale-90 active:bg-gray-700;
+}
+.input {
+    @apply rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 px-4 py-1 text-gray-200 shadow-md outline-none ring-1 ring-slate-700;
+}
